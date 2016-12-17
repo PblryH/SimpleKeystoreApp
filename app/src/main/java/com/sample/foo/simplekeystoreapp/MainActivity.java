@@ -36,6 +36,8 @@ import javax.crypto.CipherInputStream;
 import javax.crypto.CipherOutputStream;
 import javax.security.auth.x500.X500Principal;
 
+import timber.log.Timber;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -108,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 generator.initialize(spec);
 
                 KeyPair keyPair = generator.generateKeyPair();
+                Timber.d("keyPair %s", keyPair.getPrivate());
             }
         } catch (Exception e) {
             Toast.makeText(this, "Exception " + e.getMessage() + " occured", Toast.LENGTH_LONG).show();
